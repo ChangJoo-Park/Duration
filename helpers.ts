@@ -7,7 +7,7 @@
  */
 export const truncateDivide = (n1: number, n2: number): number => {
   if (Math.abs(n2) === 0 || isNaN(n2)) {
-    throw new TypeError("TypeError when divide by n2");
+    throw new RangeError("RangeError when divide by n2");
   }
 
   const result = Math.trunc(n1 / n2);
