@@ -95,7 +95,7 @@ Deno.test("Testing duration", () => {
   assertEquals(-3600, d.inSeconds);
   assertEquals(-60, d.inMinutes);
   assertEquals(-1, d.inHours);
-  assertEquals(0, d.inDays); // 왜??
+  assertEquals(0, d.inDays);
 
   d = new Duration({ minutes: -1 });
   assertEquals(-60000000, d.inMicroseconds);
@@ -216,7 +216,7 @@ Deno.test("Testing duration", () => {
   assertEquals(-3600000000, d.inMicroseconds);
   d = d1.multiply(0);
   assertEquals(0, d.inMicroseconds);
-  assertThrows(() => d1.divide(0), TypeError);
+  assertThrows(() => d1.divide(0), RangeError);
 
   d = new Duration({ microseconds: 0 });
   assert(d.lessThan(new Duration({ microseconds: 1 })));
